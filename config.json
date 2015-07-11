@@ -1,0 +1,10 @@
+{
+	"development": {
+		"consumer_key":"1",
+		"consumer_secret":"11"
+	},
+	"staging": {
+		"consumer_key":"2",
+		"consumer_secret":"3"
+	}
+}
