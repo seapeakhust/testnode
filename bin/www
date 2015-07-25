@@ -99,3 +99,42 @@ function onListening() {
 function testForTest(env, param1, param2) {
 
 }
+
+var promises = [];
+
+var promise1 = new Promise(function (resolve, reject) {
+  setTimeout(function () {
+    //resolve('promise1');
+    reject('promise1 reject');
+  }, 2000);
+});
+promises.push(promise1);
+
+var promise2 = new Promise(function (resolve, reject) {
+  setTimeout(function () {
+    resolve('promise2');
+  }, 4000);
+});
+promises.push(promise2);
+
+Promise.all([promise1, promise2]).then(function (values) {
+  console.log(values);
+}).catch(function(reject) {
+  console.log(reject);
+});
+
+[1,2,3].forEach(function (element) {
+  promises[0].then(function(value) {
+    console.log(element + value);
+  }, function(reject) {
+    console.log(element + reject);
+  })
+});
+
+[4,5,6].forEach(function (element) {
+  promises[1].then(function(value) {
+    console.log(element + value);
+  }, function(reject) {
+    console.log(element + reject);
+  })
+});
