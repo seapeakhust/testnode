@@ -138,3 +138,5 @@ Promise.all([promise1, promise2]).then(function (values) {
     console.log(element + reject);
   })
 });
+
+console.log('test reset branch');
